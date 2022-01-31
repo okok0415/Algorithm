@@ -32,3 +32,11 @@ a = float(input())
 print(format(a, ".2f"))
 
 ## 6046
+
+## 6059
+~n = -n -1
+
+## 6060
+3 & 5 비트 AND
+3 | 5 비트 OR
+3 ^ 5 비트 XOR
