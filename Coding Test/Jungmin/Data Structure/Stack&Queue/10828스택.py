@@ -1,29 +1,47 @@
 import sys
-from collections import deque
+
+
+class Stack:
+    stack = []
+
+    def push(self, x):
+        self.stack.append(x)
+
+    def pop(self):
+        if len(self.stack) == 0:
+            return -1
+        else:
+            r = self.stack[-1]
+            del self.stack[-1]
+            return r
+
+    def size(self):
+        return len(self.stack)
+
+    def empty(self):
+        if len(self.stack) == 0:
+            return 1
+        else:
+            return 0
+
+    def top(self):
+        if len(self.stack) == 0:
+            return -1
+        else:
+            return self.stack[-1]
+
 
 N = sys.stdin.readline()
-stack = deque([])
-
+s = Stack()
 for i in range(0, int(N)):
     command = sys.stdin.readline().split()
     if command[0] == "push":
-        stack.append(command[1])
+        s.push(command[1])
     elif command[0] == "pop":
-        if not stack:
-            print(-1)
-        else:
-            print(stack.pop())
+        print(s.pop())
     elif command[0] == "size":
-        print(len(stack))
+        print(s.size())
     elif command[0] == "empty":
-        if not stack:
-            print(1)
-        else:
-            print(0)
+        print(s.empty())
     elif command[0] == "top":
-        if not stack:
-            print(-1)
-        else:
-            top = stack.pop()
-            print(top)
-            stack.append(top)
+        print(s.top())
