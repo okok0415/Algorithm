@@ -1,21 +1,37 @@
 import sys
 
-minus = 0
+formula = list(sys.stdin.readline().split("-"))
 
-arr = sys.stdin.readline().split('-')
-plus = list(map(int, arr[0].split('+')))
-for i in range(1, len(arr)):
-    arr[i].replace('-', '+')
+plus = formula[0]
+minus = formula[1:]
+plus_result = []
+minus_result = []
 
-for i in range(1, len(arr)):
-    minus += list(map(int, arr[i].split('+')))
+if plus.find("+") == -1:
+    plus_result.append(int(plus))
+else:
+    a = plus.split("+")
+    for i in a:
+        plus_result.append(i)
+if len(minus) == 1:
+    if minus[0].find("+") == -1:
+        minus_result.append(int(minus))
+    else:
+        for m in minus:
+            a = m.split("+")
+            for i in a:
+                minus_result.append(i)
+else:
+    for m in minus:
+        a = m.split("+")
+        for i in a:
+            minus_result.append(i)
 
-result = 0
+final = 0
+for i in plus_result:
+    final += int(i)
 
-for i in plus:
-    result += i;
+for i in minus_result:
+    final -= int(i)
 
-for i in minus:
-    result -= i;
-
-print(result)
+print(final)
