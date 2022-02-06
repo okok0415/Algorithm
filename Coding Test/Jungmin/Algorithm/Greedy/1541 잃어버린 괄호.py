@@ -1,37 +1,29 @@
 import sys
 
 formula = list(sys.stdin.readline().split("-"))
+plus = []
+minus = []
 
-plus = formula[0]
-minus = formula[1:]
-plus_result = []
-minus_result = []
-
-if plus.find("+") == -1:
-    plus_result.append(int(plus))
+if formula[0].find('+'):
+    li = formula[0].split('+')
+    for i in li:
+        plus.append(int(i))
 else:
-    a = plus.split("+")
-    for i in a:
-        plus_result.append(i)
-if len(minus) == 1:
-    if minus[0].find("+") == -1:
-        minus_result.append(int(minus))
+    plus.append(int(formula[0]))
+
+for f in formula[1:]:
+    if f.find('+'):
+        fli = f.split('+')
+        for i in fli:
+            minus.append(int(i))
     else:
-        for m in minus:
-            a = m.split("+")
-            for i in a:
-                minus_result.append(i)
-else:
-    for m in minus:
-        a = m.split("+")
-        for i in a:
-            minus_result.append(i)
+        minus.append(int(f))
 
-final = 0
-for i in plus_result:
-    final += int(i)
+result = 0
+for p in plus:
+    result += p
 
-for i in minus_result:
-    final -= int(i)
+for m in minus:
+    result -= m
 
-print(final)
+print(result)
