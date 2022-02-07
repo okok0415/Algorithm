@@ -12,9 +12,6 @@ def bfs(graph, start, visited):
                 visited[i] = True
          
 
-
-
-
 graph = [
     [],
     [2,3,8],
@@ -30,3 +27,4 @@ graph = [
 visited = [False]*9
 
 bfs(graph, 1, visited)
+

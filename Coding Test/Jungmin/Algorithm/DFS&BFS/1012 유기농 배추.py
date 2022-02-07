@@ -32,7 +32,7 @@ for i in range(T):
     result = 0
     for i in range(M):
         for j in range(N):
-            if bfs(i, j) == True:
+            if dfs(i, j) == True:
                 result += 1
 
     print(result)
