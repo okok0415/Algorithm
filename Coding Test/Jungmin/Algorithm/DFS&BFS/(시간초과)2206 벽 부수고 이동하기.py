@@ -41,10 +41,20 @@ li.append(graphcopy[N-1][M-1])
 for i in range(N):
     for j in range(M):
         if graph[i][j] == 1:
-            graphcopy = copy.deepcopy(graph)
-            graphcopy[i][j] = 0
-            bfs(graphcopy)
-            li.append(graphcopy[N-1][M-1])
+            if i == 0 or i == N-1 or j == 0 or j == M-1:
+                continue
+
+            one = [graph[i+1][j], graph[i][j+1], graph[i-1][j], graph[i][j-1]]
+            count = 0
+            for i in one:
+                if i == 0:
+                    count += 1
+                               
+            if count >= 2:                    
+                graphcopy = copy.deepcopy(graph)
+                graphcopy[i][j] = 0
+                bfs(graphcopy)
+                li.append(graphcopy[N-1][M-1])
 
 if max(li) == 0:
     print(-1)
