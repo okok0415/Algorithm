@@ -36,3 +36,5 @@ answer = 0
 binary_search(start, end)
 print(answer)
 
+
+#답을 봐도 이해를 못하겠다
