@@ -1,27 +1,24 @@
 import sys
 
 
-n, m = map(int, sys.stdin.readline().split())
-graph = []
-for i in range(n):
-    graph.append(list(map(int, input())))
+def solution(N):
+    b = format(int(N), "b")
+    b = list(map(int, b))
 
-def dfs(x, y):
-    if x < 0 or x >= n or y < 0 or y >= m:
-        return False
-    if graph[x][y] == 0:
-        graph[x][y] = 1
-        dfs(x-1, y)
-        dfs(x, y-1)
-        dfs(x+1, y)
-        dfs(x, y+1)
-        return True
-    return False
+    z_list = []
+    f_list = []
+    for i in range(len(b)):
+        if b[i] == 1:
+            z_list.append(i)
 
-result = 0
-for i in range(n):
-    for j in range(m):
-        if dfs(i,j) == True:
-            result += 1
-            
-print(result)
+    if len(z_list) < 2:
+        return 0
+    else:
+        for i in range(len(z_list) - 1):
+            f_list.append(z_list[i + 1] - z_list[i])
+
+        return max(f_list) - 1
+
+
+N = input()
+print(solution(N))
