@@ -1,4 +1,7 @@
 import sys
 
 while True:
-    print(sys.stdin.readline())
+    try:
+        print(sys.stdin.readline())
+    except EOFError:
+        break
