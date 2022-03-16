@@ -10,7 +10,7 @@ if (stdin.includes('0')){
     })
     if (sum % 3 == 0){
         
-        let arr = stdin.sort().reverse()
+        let arr = stdin.sort((a, b) => b - a)
         arr.forEach(a => {
             process.stdout.write(String(a))
         })
