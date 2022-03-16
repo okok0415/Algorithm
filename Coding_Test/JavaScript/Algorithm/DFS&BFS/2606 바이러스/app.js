@@ -22,25 +22,23 @@ graph.forEach(e => {
     e.sort((a, b) => a - b)
 })
 
-let visited  = new Array(N+1).fill(0)
-let answer_dfs = []
+let flag  = new Array(N+1).fill(0)
+let historyBook = []
 
 const DFS = (v) => {
-    if (visited[v]){
-        return
+    if(flag[v]){
+        return 
     }
+    flag[v] = 1
+    historyBook.push(v)
 
-    visited[v] = 1
-    answer_dfs.push(v)
-    for(let i = 0; i < graph[v].length ;i++){
-        let next = graph[v][i]
-        if (visited[i] == 0){
-            DFS(next);
+    for(g of graph[v]){
+        if (flag[g] === 0){
+            DFS(g)
         }
     }
-
 }
 
 DFS(1);
 
-console.log(answer_dfs.join(' '))
+console.log(historyBook.length -1)
