@@ -34,3 +34,11 @@ const n = input[0];
 const n_arr = input.slice(1, n+1);
 const [m, ...m_arr] = input.slice(n+1);
 ~~~
+
+7. 최종
+~~~
+const fs = require('fs')
+const filePath = process.platform === 'linux' ? '/dev/stdin' : __dirname + '/input.txt'
+const fileEnter = process.platform === 'linux' ? '\n' : '\r\n'
+const input = fs.readFileSync(filePath).toString().split(fileEnter)
+~~~
