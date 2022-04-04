@@ -65,8 +65,8 @@ printSquare(5) -> printSquare(5) - multiply(x, x) -> printSquare(5) - console.lo
 3. 메모리 힙에 객체들의 메모리 할당을 관리합니다.
 4. 더 이상 쓰이지 않는 객체들을 가비지 콜렉팅합니다.
 5. 모든 데이터 타입, 연산자, 객체, 함수를 제공합니다.
-6. 이벤트 루프를 제공합니다.
-
+6. 이벤트 루프를 제공합니다. 
+ 
 > V8은 어떻게 JavaScript 코드를 컴파일할까요?
 
 V8에는 Ignition이라는 JS 인터프리터와 TurboFan 이라는 컴파일러를 이용합니다.
@@ -80,6 +80,5 @@ V8에는 Ignition이라는 JS 인터프리터와 TurboFan 이라는 컴파일러
 1. Ignition이 JS코드를 non-optimized 바이트코드를 생성
 2. TurboFan이 optimized 머신 코드로 컴파일
 
-로 변경하였습니다. 그 이유는 TurboFan이 ES6를 제공하고 TryCatch와 같은 것들을 Crankshaft가 최적화하지 못했고
-Ignition이 바이트 코드로 컴파일하는 것이 머신 코드로 컴파일 하는 것보다 1/2~1/4 정도로 사이즈가 작았기 때문에 웹페이지 로드 시간을 줄였기 때문입니다.
+로 변경하였습니다. 그 이유는 TurboFan이 ES6를 제공하고 TryCatch와 같은 것들을 Crankshaft가 최적화하지 못했고 Ignition이 바이트 코드로 컴파일하는 것이 머신 코드로 컴파일 하는 것보다 1/2~1/4 정도로 사이즈가 작았기 때문에 웹페이지 로드 시간을 줄였기 때문입니다.
 
