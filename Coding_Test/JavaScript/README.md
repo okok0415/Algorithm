@@ -42,3 +42,5 @@ const filePath = process.platform === 'linux' ? '/dev/stdin' : __dirname + '/inp
 const fileEnter = process.platform === 'linux' ? '\n' : '\r\n'
 const input = fs.readFileSync(filePath).toString().split(fileEnter)
 ~~~
+
+소수점 함수 - Math.round()
