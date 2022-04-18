@@ -49,4 +49,5 @@ function solution(enroll, referral, seller, amount) {
     }
 
     return result
+    return
 }
