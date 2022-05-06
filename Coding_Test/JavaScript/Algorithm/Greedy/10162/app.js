@@ -1,39 +1,21 @@
-const fs = require('fs');
+const fs = require('fs')
 const filePath = process.platform === 'linux' ? '/dev/stdin' : __dirname + '/input.txt'
+const fileEnter = process.platform === 'linux' ? '\n' : '\r\n'
+const input = fs.readFileSync(filePath).toString().split(fileEnter)
 
-const stdin = fs.readFileSync(filePath).toString()
 
-let Time = parseInt(stdin)
-
-let five = 0
-let one = 0
-let ten = 0
-let minus = true
-while (Time !== 0){
-    if (Time >= 300){
-        value = parseInt(Time / 300)
-        Time -= value * 300
-        five += value
+let arr = input[0].split('').map(Number)
+let result = 0
+let T = false
+for(a of arr){
+    if (a === 0){
+        T = true
     }
-    else if (Time >= 60) {
-        value = parseInt(Time / 60)
-        Time -= value * 60
-        one += value
-    }
-    else if (Time >= 10) {
-        value = parseInt(Time / 10)
-        Time -= value * 10
-        ten += value
-    }
-    else {
-        minus = false
-        break
-    }
-
+    result += a
 }
-
-if (minus){
-    console.log(five, one, ten)
-} else{
+if(result%3 !== 0  || T === false){
     console.log(-1)
+}else{
+    arr.sort((a, b) => b - a)
+    console.log(arr.join(''))
 }
