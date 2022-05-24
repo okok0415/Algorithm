@@ -21,3 +21,5 @@ def solution(genres, plays):
             result.append(dict[s][i][1])
 
     return result
+
+    dict
