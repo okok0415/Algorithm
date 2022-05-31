@@ -38,3 +38,5 @@ for test_case in range(1, T + 1):
             return count + 1
 
     print(f"#{test_case} {bfs(first, count)}")
+
+    print(f"#{test_case}")
